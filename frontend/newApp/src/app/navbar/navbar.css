@@ -1,0 +1,76 @@
+.navbar {
+  height: 70px;
+  background-color: #064e3b;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 30px;
+}
+
+.brand {
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.nav-center {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+.nav-center a:hover,
+.nav-center a.active {
+  background-color: #166b4c;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.auth-btn {
+  text-decoration: none;
+  background-color: #20b17a;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: 0.3s;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.auth-btn:hover {
+  background-color: #27c48b;
+}
+
+.btn-logout {
+  background-color: #dc2626;
+}
+
+.btn-logout:hover {
+  background-color: #b91c1c;
+}

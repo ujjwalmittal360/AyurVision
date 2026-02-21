@@ -1,0 +1,74 @@
+.history-container {
+  padding: 30px 40px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.history-card {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.card-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-circle {
+  background-color: #e8f5e9;
+  border-radius: 50%;
+  padding: 12px;
+}
+
+.icon-circle mat-icon {
+  color: #2e7d32;
+}
+
+.plant-info h3 {
+  margin: 0;
+  font-weight: 600;
+  color: #1e6b4d;
+}
+
+.scientific {
+  margin: 0;
+  color: gray;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.match-badge {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.date {
+  font-size: 13px;
+  color: gray;
+}
+
+.empty {
+  text-align: center;
+  color: gray;
+  margin-top: 40px;
+}

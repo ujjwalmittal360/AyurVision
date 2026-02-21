@@ -1,0 +1,292 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px;
+  background-color: #f5f7f6;
+  min-height: calc(100vh - 70px);
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+
+.subtitle {
+  color: gray;
+  margin-bottom: 15px;
+}
+
+.upload-card,
+.result-card {
+  height: auto;
+  min-height: 350px;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.upload-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-area {
+  border: 2px dashed #cbd5e1;
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  color: #64748b;
+  cursor: pointer;
+  position: relative;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.identify-btn {
+  margin-top: auto;
+  width: 100%;
+}
+
+.btn-green {
+  background-color: #1e6b4d !important;
+  color: white !important;
+}
+
+.btn-green:hover {
+  background-color: #16523a !important;
+}
+
+.result-card {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.scientific {
+  color: gray;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.result-section {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.result-section h4 {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.result-section p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.result-section.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.placeholder {
+  color: gray;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+
+.result-card {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.result-header-bg {
+  background-color: #e6f7ec;
+  padding: 20px 25px;
+  border-bottom: 2px solid #10b981;
+}
+
+.result-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plant-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.confidence-badge {
+  background-color: white;
+  color: #10b981;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid #10b981;
+  font-size: 14px;
+}
+
+.result-body {
+  padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-row {
+  display: flex;
+  padding: 20px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.border-none {
+  border-bottom: none;
+}
+
+.info-label {
+  flex: 0 0 35%;
+  color: #6b7280;
+  font-size: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.icon-small {
+  font-size: 18px;
+  color: #6b7280;
+}
+
+.info-value {
+  flex: 1;
+  color: #374151;
+  font-size: 14px;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+.font-bold {
+  font-weight: 600;
+}
+
+.grid-layout {
+  display: flex;
+  gap: 15px;
+}
+
+.info-box {
+  flex: 1;
+  padding: 12px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.beige-box {
+  background-color: #fdf8eb;
+}
+
+.green-box {
+  background-color: #f0fdf4;
+}
+
+.box-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #4b5563;
+  letter-spacing: 0.5px;
+}
+
+.box-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.box-text {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.medicinal-list {
+  margin: 0;
+  padding-left: 18px;
+  color: #374151;
+}
+
+.medicinal-list li {
+  margin-bottom: 4px;
+}
+
+.warning-box {
+  background-color: #fefce8;
+  padding: 10px 15px;
+  border-radius: 6px;
+  color: #854d0e;
+}
+
+.attachment-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+.attachment-file {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4b5563;
+}
+
+.download-link {
+  color: #10b981;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.download-link:hover {
+  text-decoration: underline;
+}

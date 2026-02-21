@@ -1,0 +1,123 @@
+<div class="dashboard">
+  <div class="left-panel">
+    <h2>Upload Specimen</h2>
+    <p class="subtitle">Ensure the image is clear and well-lit.</p>
+    <mat-card class="upload-card">
+      <input type="file" (change)="onFileSelected($event)" hidden #fileInput />
+
+      <div class="upload-area" (click)="fileInput.click()">
+        <ng-container *ngIf="!imagePreview">
+          <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,0,0,0&icon_names=upload" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-upload"
+            viewBox="0 0 16 16">
+            <path
+              d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
+            <path
+              d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z" />
+          </svg>
+          <p><strong>Upload a file</strong> or drag and drop</p>
+          <p><small>PNG, JPG, GIF up to 10MB</small></p>
+        </ng-container>
+
+        <ng-container *ngIf="imagePreview">
+          <img [src]="imagePreview" class="preview-image" />
+          <button mat-mini-fab color="warn" class="remove-btn" (click)="removeImage(); $event.stopPropagation()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </ng-container>
+      </div>
+      <button mat-raised-button color="primary" class="identify-btn btn-green" (click)="uploadFile()"
+        [disabled]="!selectedFile || loading">
+        {{ loading ? 'Processing...' : 'Identify (Local Model)' }}
+      </button>
+    </mat-card>
+  </div>
+  <div class="right-panel">
+    <h2>Identification Results</h2>
+    <p class="subtitle">Detailed botanical analysis from local model.</p>
+
+
+    <mat-card class="result-card">
+      <ng-container *ngIf="result; else placeholderTpl">
+        <div class="result-header-bg">
+          <div class="result-header-content">
+            <div>
+              <h2 class="plant-title">{{ result.common_name || 'Unknown' }}</h2>
+              <p class="scientific">{{ result.scientific_name || '' }}</p>
+            </div>
+            <div class="confidence-badge">
+              Confidence: {{ result.confidence * 100 | number: '1.0-2' }}%
+            </div>
+          </div>
+        </div>
+
+        <div class="result-body">
+          <div class="info-row">
+            <div class="info-label">Description</div>
+            <div class="info-value">{{ result.description || 'N/A' }}</div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label">
+              Ayurvedic Properties
+            </div>
+            <div class="info-value font-italic font-bold">{{ result.properties || 'N/A' }}</div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label">
+              Market & Farming
+            </div>
+            <div class="info-value grid-layout">
+              <div class="info-box beige-box">
+                <span class="box-title">MARKET VALUE (100KG)</span>
+                <span class="box-value">{{ result.market_value || 'N/A' }}</span>
+              </div>
+              <div class="info-box green-box">
+                <span class="box-title">SOWING / HARVEST</span>
+                <span class="box-text">Sow: {{ result.sowing || 'N/A' }}<br>Harv: {{ result.harvest || 'N/A' }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label">
+              Medicinal Uses
+            </div>
+            <div class="info-value">
+              <ul class="medicinal-list">
+                <li *ngFor="let use of (result.medicinal_uses || '').split(';')">{{ use.trim() }}</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label">
+              Parts & Prep
+            </div>
+            <div class="info-value">
+              <p><strong>Parts Used:</strong> {{ result.parts_used || 'N/A' }}</p>
+              <p><strong>Common Prep:</strong> {{ result.preparation || 'N/A' }}</p>
+            </div>
+          </div>
+
+          <div class="info-row border-none">
+            <div class="info-label">
+              Toxicity & Cautions
+            </div>
+            <div class="info-value warning-box">
+              {{ result.toxicity || 'N/A' }}
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #placeholderTpl>
+        <div class="placeholder">
+          <p>Upload an image to see analysis results here.</p>
+        </div>
+      </ng-template>
+    </mat-card>
+  </div>
+</div>

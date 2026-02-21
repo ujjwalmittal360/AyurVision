@@ -1,0 +1,31 @@
+<div class="history-container">
+  <h2>Identification History</h2>
+
+  <mat-card *ngFor="let item of history" class="history-card">
+    <div class="card-left">
+      <div class="icon-circle">
+
+      </div>
+
+      <div class="plant-info">
+        <h3>{{ item.plant_name }}</h3>
+        <p class="scientific">
+
+          {{ item.scientific_name || item.plant_name }}
+        </p>
+      </div>
+    </div>
+
+    <div class="card-right">
+      <div class="match-badge">
+        {{ item.confidence * 100 | number: '1.0-2' }}% Match
+      </div>
+
+      <span class="date">
+        {{ item.date | date: 'dd/MM/yyyy' }}
+      </span>
+    </div>
+  </mat-card>
+
+  <div *ngIf="!loading && history.length === 0" class="empty">No identification history found.</div>
+</div>

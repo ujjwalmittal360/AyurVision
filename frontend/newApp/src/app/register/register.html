@@ -1,0 +1,22 @@
+<div class="register-container">
+  <div class="form-logo"><img src="/logo.png" alt="AyurVision Logo" /></div>
+  <div class="form-branding"><h1>Create your account</h1></div>
+  <div class="register-card">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" [(ngModel)]="name" name="name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" [(ngModel)]="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required />
+      </div>
+      <button type="submit" class="btn-primary">Register</button>
+      <button routerLink="/login" class="btn-secondary">Login to existing account</button>
+    </form>
+  </div>
+</div>

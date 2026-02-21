@@ -1,0 +1,26 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.db
+
+# ML models
+*.keras
+*.h5
+*.pb
+
+# Node
+node_modules/
+dist/
+.angular/
+coverage/
+
+# Environment
+.env
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

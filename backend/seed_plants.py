@@ -1,0 +1,49 @@
+import sqlite3
+def seed_plants():
+    conn = sqlite3.connect('plants.db')
+    cursor = conn.cursor()
+    plants_data = [
+    ('Alpinia Galanga', 'Rasna (Blue Ginger)', 'A rhizomatous herb used in cooking and medicine.', 'Effective for relieving respiratory troubles like bronchitis and asthma, managing rheumatic inflammation, improving appetite, and treating digestive issues like bloating.', 'Ushna (Hot), Kapha-Vata hara', 'Rhizome', 'Decoction, Paste', 'Rs. 200 - 400/kg', 'Feb - March', 'Jan - Feb', 'Safe'),
+    ('Amaranthus Viridis', 'Arive-Dantu (Green Amaranth)', 'Common leafy vegetable rich in iron.', 'A nutrient-dense green used to combat iron-deficiency anemia, improve digestive health through high fiber content, and support vision due to Vitamin A.', 'Sheeta (Cooling), Pitta hara', 'Leaves, Stems', 'Cooked Vegetable', 'Rs. 20 - 40/bunch', 'Year round', '30 days after sowing', 'Safe'),
+    ('Artocarpus Heterophyllus', 'Jackfruit', 'Large tropical fruit tree.', 'Rich in antioxidants that boost immunity and skin health; the seeds and pulp provide instant energy and aid in regulating digestion.', 'Guru (Heavy), Balya', 'Fruit, Seeds, Leaves', 'Fruit, Curry', 'Rs. 50 - 100/fruit', 'June - Aug', 'March - June', 'Raw fruit latex sticky'),
+    ('Azadirachta Indica', 'Neem', 'The Village Pharmacy.', 'Renowned for treating acne and skin infections, purifying the blood, boosting immunity, and acting as a powerful antifungal and antibacterial agent.', 'Tikta (Bitter), Krimighna', 'Leaves, Bark', 'Juice, Paste', 'Rs. 1,500 - 3,000/kg (Dry)', 'May - June', 'June - Aug', 'Safe external'),
+    ('Basella Alba', 'Basale (Malabar Spinach)', 'Cooling leafy vine.', 'Acts as a cooling diuretic helpful for treating oral ulcers, reducing body heat, alleviating constipation, and soothing inflammation in the digestive tract.', 'Sheeta, Pichhila', 'Leaves', 'Soups, Curry', 'Rs. 40 - 60/kg', 'Year round', '45 days post sow', 'Safe'),
+    ('Brassica Juncea', 'Indian Mustard', 'Oilseed crop.', 'Used externally as a rub to relieve joint pain and arthritis; internally, it helps clear chest congestion and stimulates digestion.', 'Ushna, Lekhana', 'Seeds', 'Oil, Paste', 'Rs. 5,000 - 6,000/qtl', 'Oct - Nov', 'Feb - March', 'Safe'),
+    ('Carissa Carandas', 'Karanda', 'Berry producing shrub.', 'Rich in iron and Vitamin C, it helps treat anemia, improves digestion, reduces fever, and supports overall immune function.', 'Amla (Sour), Rochana', 'Fruit', 'Pickle, Juice', 'Rs. 100 - 150/kg', 'Aug - Sept', 'July - Sept', 'Safe'),
+    ('Citrus Limon', 'Lemon', 'Common citrus fruit.', 'Boosts immunity with Vitamin C, aids in detoxification by flushing out toxins, improves digestion, and helps balance body pH levels.', 'Amla, Deepana', 'Fruit', 'Juice', 'Rs. 3,000 - 6,000/qtl', 'June - July', 'Year round', 'Safe'),
+    ('Ficus Auriculata', 'Roxburgh Fig', 'Tree with large leaves.', 'Traditionally used to treat chronic diarrhea and dysentery; the latex and leaves are applied to wounds to speed up healing.', 'Kashaya, Stambhana', 'Fruit, Leaves', 'Fruit intake', 'Local Market', 'July - Aug', 'Year round', 'Safe'),
+    ('Ficus Religiosa', 'Peepal Tree', 'Sacred Fig.', 'Treats various skin conditions like eczema, purifies the blood, manages diabetes, and supports respiratory health in conditions like asthma.', 'Sheeta, Varnya', 'Bark, Leaves', 'Decoction', 'Non-commercial', 'Natural', 'Year round', 'Safe'),
+    ('Hibiscus Rosa-sinensis', 'Hibiscus', 'Shoe flower.', 'Promotes hair growth and prevents greying; supports heart health by regulating blood pressure and cholesterol levels, and aids in cooling the body.', 'Keshya (Hair tonic)', 'Flowers', 'Tea, Oil', 'Rs. 500 - 800/kg (Dry)', 'Year round', 'Year round', 'Safe'),
+    ('Jasminum', 'Jasmine', 'Fragrant flower.', 'Its aroma uplifts mood and relieves stress; applied topically to soothe skin irritation, heal wounds, and provide a cooling effect.', 'Tridosha hara', 'Flowers', 'Oil, Paste', 'Rs. 200 - 400/kg', 'June - Nov', 'Year round', 'Safe'),
+    ('Mangifera Indica', 'Mango', 'King of Fruits.', 'Provides a quick energy boost; leaves help manage diabetes, while the fruit supports immunity and digestion due to fiber content.', 'Balya, Hridya', 'Fruit, Leaves', 'Fruit, Juice', 'Rs. 5,000 - 15,000/qtl', 'Aug - Sept', 'April - July', 'Safe'),
+    ('Mentha', 'Mint (Pudina)', 'Aromatic herb.', 'Excellent for soothing digestive issues like gas and bloating, relieving nausea and headaches, and providing a cooling sensation to the body.', 'Rochana, Deepana', 'Leaves', 'Chutney, Tea', 'Rs. 20 - 40/bunch', 'Feb - April', 'Year round', 'Safe'),
+    ('Moringa Oleifera', 'Drumstick', 'Superfood tree.', 'A powerhouse of nutrients that strengthens bones, alleviates joint pain, improves vision, and boosts the immune system against infections.', 'Chakshushya, Balya', 'Leaves, Fruit', 'Curry, Powder', 'Rs. 2,000 - 4,000/qtl', 'July - Aug', 'March - April', 'Safe'),
+    ('Murraya Koenigii', 'Curry Leaf', 'Essential Indian spice.', 'Strengthens hair roots and prevents premature greying; helps regulate blood sugar levels in diabetics and improves digestive enzymes.', 'Deepana, Pachana', 'Leaves', 'Tempering, Powder', 'Rs. 30 - 60/kg', 'Monsoon', 'Year round', 'Safe'),
+    ('Nerium Oleander', 'Oleander (Arali)', 'Ornamental shrub.', 'Strictly for external use to treat skin lesions, ringworm, and swelling; highly toxic if ingested and must be handled with care.', 'Visha (Toxic)', 'Root Bark', 'External Paste', 'Not Food', 'Year round', 'Year round', 'TOXIC INTERNALLY'),
+    ('Nyctanthes Arbor-tristis', 'Parijata', 'Night flowering jasmine.', 'Highly effective for treating sciatica and arthritis pain, managing chronic fevers like malaria, and expelling intestinal worms.', 'Vata-Kapha hara', 'Leaves, Flowers', 'Decoction', 'Local Use', 'July - Aug', 'Sept - Dec', 'Safe'),
+    ('Ocimum Tenuiflorum', 'Tulsi (Holy Basil)', 'Queen of Herbs.', 'The ultimate remedy for respiratory infections like cough and cold; strengthens immunity, reduces stress, and fights bacterial infections.', 'Kaphaghna, Vishaghna', 'Leaves', 'Tea, Raw', 'Rs. 5,000 - 7,000/qtl', 'June - July', 'Oct - Nov', 'Safe'),
+    ('Piper Betle', 'Betel Leaf', 'Paan.', 'Chewing aids digestion and freshens breath; the leaf juice is used to treat coughs, vocal cord inflammation, and improve voice clarity.', 'Ushna, Tikshna', 'Leaves', 'Chewed Raw', 'Rs. 200 - 400/100 leaves', 'Oct - Nov', '3 months post plant', 'Safe'),
+    ('Plectranthus Amboinicus', 'Mexican Mint (Doddapatre)', 'Ajwain leaf.', 'A potent remedy for coughs, chest congestion, and colds; also aids in digestion and relieves colic pain in children.', 'Ushna, Katu', 'Leaves', 'Juice, Fritters', 'Local', 'Year round', 'Year round', 'Safe'),
+    ('Pongamia Pinnata', 'Indian Beech (Karanja)', 'Oil tree.', 'The oil is effective for treating skin diseases like leprosy and eczema, healing wounds, and relieving rheumatic joint pain.', 'Krimighna, Kandughna', 'Seeds, Oil', 'Oil Application', 'Rs. 3,000 - 4,000/qtl', 'Monsoon', 'Jan - March', 'Seeds Toxic if eaten'),
+    ('Psidium Guajava', 'Guava', 'Tropical fruit.', 'Leaves are brewed to manage blood sugar levels; the fruit is rich in fiber, promoting healthy digestion and preventing constipation.', 'Grahi', 'Fruit, Leaves', 'Fruit, Tea', 'Rs. 2,000 - 4,000/qtl', 'Feb & June', 'Winter & Rainy', 'Safe'),
+    ('Punica Granatum', 'Pomegranate', 'Anar.', 'Increases hemoglobin levels to fight anemia; the rind and fruit are powerful astringents used to stop diarrhea and dysentery.', 'Raktavardhaka', 'Fruit, Rind', 'Juice', 'Rs. 6,000 - 10,000/qtl', 'Feb - March', 'Sept - Nov', 'Safe'),
+    ('Santalum Album', 'Sandalwood', 'Chandan.', 'The paste soothes sunburns and acne, cools the body, and the scent promotes mental clarity, relaxation, and focus.', 'Varnya, Sheeta', 'Heartwood', 'Paste', 'Rs. 10,000+/kg', 'Natural', '15+ Years', 'Safe'),
+    ('Syzygium Cumini', 'Jamun', 'Java Plum.', 'Seeds are a specific remedy for controlling high blood sugar; the fruit treats digestive disorders like dysentery and stomach pain.', 'Stambhana', 'Fruit, Seeds', 'Fruit, Powder', 'Rs. 80 - 150/kg', 'June - July', 'June - Aug', 'Safe'),
+    ('Syzygium Jambos', 'Rose Apple', 'Fragrant fruit.', 'Supports liver function and acts as a diuretic; helps in digestion and boosting immunity, though seeds should be avoided.', 'Hridya', 'Fruit', 'Raw Fruit', 'Local', 'Spring', 'Summer', 'Seeds toxic'),
+    ('Tabernaemontana Divaricata', 'Crape Jasmine (Nandivardhana)', 'Flower shrub.', 'Flower juice is traditionally used for eye ailments; the latex and leaves help reduce inflammation and heal wounds.', 'Chakshushya', 'Flower juice', 'Eye drops (Expert only)', 'Local', 'Year round', 'Year round', 'Milky latex irritant'),
+    ('Trigonella Foenum-graecum', 'Fenugreek (Methi)', 'Spice and green.', 'Controls blood sugar and cholesterol levels; promotes lactation in nursing mothers and strengthens hair to reduce falling.', 'Balya, Deepana', 'Seeds, Leaves', 'Powder, Cooked', 'Rs. 5,000 - 7,000/qtl', 'Oct - Nov', 'Jan - March', 'Safe'),
+    ('Wrightia Tinctoria', 'Pala Indigo', 'Dye plant.', 'The primary herbal remedy for psoriasis and nonspecific dermatitis; the oil soothes itching and promotes skin healing effectively.', 'Kusthaghna', 'Leaves', 'Oil (777 Oil)', 'Commercial', 'Monsoon', 'Year round', 'Safe')
+    ]
+
+    conn = sqlite3.connect("plants.db")
+    cursor = conn.cursor()
+
+    cursor.executemany("""
+    INSERT OR IGNORE INTO plants
+    (scientific_name, common_name, description, medicinal_uses, properties,
+    parts_used, preparation, market_value, sowing, harvest, toxicity)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, plants_data)
+
+    conn.commit()
+    conn.close()

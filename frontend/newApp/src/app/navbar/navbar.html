@@ -1,0 +1,29 @@
+<mat-toolbar class="navbar">
+  <div class="nav-left">
+    <img src="logo.png" alt="logo" class="logo" />
+    <span class="brand">AyurVision</span>
+  </div>
+  <div class="nav-center">
+    <a *ngIf="router.url !== '/' && router.url !== '/home'" routerLink="/" routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }">
+      Home
+    </a>
+    <ng-container *ngIf="auth.isLoggedIn()">
+      <a *ngIf="router.url !== '/dashboard'" routerLink="/dashboard" routerLinkActive="active"> Dashboard </a>
+      <a *ngIf="router.url !== '/history'" routerLink="/history" routerLinkActive="active"> History </a>
+    </ng-container>
+  </div>
+  <div class="nav-right">
+    <ng-container *ngIf="auth.isLoggedIn(); else showLogin">
+
+      <span class="nav-username" style="color: white; margin-right: 15px; font-size: 16px;">{{ username }}</span>
+      <button class="auth-btn btn-logout" (click)="logout()">
+        <span class="material-symbols-outlined" style="font-size: 16px; margin-right: 5px;">logout</span>
+      </button>
+    </ng-container>
+
+    <ng-template #showLogin>
+      <a routerLink="/login" class="auth-btn"> Login / Register </a>
+    </ng-template>
+  </div>
+</mat-toolbar>
